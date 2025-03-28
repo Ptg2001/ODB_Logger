@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 900" fill="none">
+  <rect width="1440" height="900" fill="#0F172A" />
+  <g opacity="0.08">
+    <path d="M0 0L1440 0L1440 900L0 900L0 0Z" fill="url(#paint0_radial)" />
+  </g>
+  <!-- Dashboard Circle -->
+  <g opacity="0.03">
+    <circle cx="720" cy="450" r="350" stroke="#64748B" stroke-width="2" />
+    <circle cx="720" cy="450" r="300" stroke="#64748B" stroke-width="2" />
+    <circle cx="720" cy="450" r="250" stroke="#64748B" stroke-width="2" />
+    <circle cx="720" cy="450" r="200" stroke="#64748B" stroke-width="2" />
+    <circle cx="720" cy="450" r="150" stroke="#64748B" stroke-width="2" />
+  </g>
+  
+  <!-- Speed Markers -->
+  <g opacity="0.1">
+    <path d="M720 100L720 120" stroke="#E11D48" stroke-width="2" />
+    <path d="M896 182L885 198" stroke="#E11D48" stroke-width="2" />
+    <path d="M978 326L962 337" stroke="#E11D48" stroke-width="2" />
+    <path d="M1040 450L1020 450" stroke="#E11D48" stroke-width="2" />
+    <path d="M978 574L962 563" stroke="#E11D48" stroke-width="2" />
+    <path d="M896 718L885 702" stroke="#E11D48" stroke-width="2" />
+    <path d="M720 800L720 780" stroke="#E11D48" stroke-width="2" />
+    <path d="M544 718L555 702" stroke="#E11D48" stroke-width="2" />
+    <path d="M462 574L478 563" stroke="#E11D48" stroke-width="2" />
+    <path d="M400 450L420 450" stroke="#E11D48" stroke-width="2" />
+    <path d="M462 326L478 337" stroke="#E11D48" stroke-width="2" />
+    <path d="M544 182L555 198" stroke="#E11D48" stroke-width="2" />
+  </g>
+  
+  <!-- Grid Lines -->
+  <g opacity="0.05">
+    <path d="M0 450H1440" stroke="#64748B" stroke-width="1" />
+    <path d="M720 0V900" stroke="#64748B" stroke-width="1" />
+  </g>
+  
+  <!-- Gauge Elements -->
+  <g opacity="0.07">
+    <path d="M600 470C600 435.817 627.817 408 662 408H778C812.183 408 840 435.817 840 470V470C840 504.183 812.183 532 778 532H662C627.817 532 600 504.183 600 470V470Z" fill="#3B82F6" />
+    <path d="M520 300C520 265.817 547.817 238 582 238H858C892.183 238 920 265.817 920 300V300C920 334.183 892.183 362 858 362H582C547.817 362 520 334.183 520 300V300Z" fill="#14B8A6" stroke="#14B8A6" stroke-width="1" />
+    <path d="M520 640C520 605.817 547.817 578 582 578H858C892.183 578 920 605.817 920 640V640C920 674.183 892.183 702 858 702H582C547.817 702 520 674.183 520 640V640Z" fill="#14B8A6" stroke="#14B8A6" stroke-width="1" />
+  </g>
+  
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(720 450) rotate(90) scale(450 720)">
+      <stop stop-color="#3B82F6" />
+      <stop offset="0.5" stop-color="#14B8A6" />
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg> 

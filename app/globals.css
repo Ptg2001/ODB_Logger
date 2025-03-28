@@ -1,0 +1,604 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* Chart colors - vibrant colors for light mode */
+    --chart-1: 0 100% 50%;      /* Red */
+    --chart-2: 30 100% 50%;     /* Orange */
+    --chart-3: 60 100% 50%;     /* Yellow */
+    --chart-4: 120 70% 50%;     /* Green */
+    --chart-5: 200 100% 50%;    /* Blue */
+    --chart-6: 270 100% 60%;    /* Purple */
+    --chart-7: 300 100% 50%;    /* Pink */
+    --chart-8: 160 100% 45%;    /* Teal */
+    --chart-9: 45 100% 50%;     /* Gold */
+    --chart-10: 330 100% 50%;   /* Magenta */
+
+    /* Sidebar */
+    --sidebar: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-ring: 224.3 76.3% 48%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 210 40% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    /* Chart colors - slightly less vibrant for dark mode to avoid eye strain */
+    --chart-1: 0 80% 65%;       /* Red */
+    --chart-2: 30 80% 60%;      /* Orange */
+    --chart-3: 60 80% 60%;      /* Yellow */
+    --chart-4: 120 60% 60%;     /* Green */
+    --chart-5: 200 80% 60%;     /* Blue */
+    --chart-6: 270 80% 70%;     /* Purple */
+    --chart-7: 300 80% 65%;     /* Pink */
+    --chart-8: 160 70% 55%;     /* Teal */
+    --chart-9: 45 80% 65%;      /* Gold */
+    --chart-10: 330 80% 65%;    /* Magenta */
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 171 75% 41%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    /* Sidebar */
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-ring: 222.2 84% 4.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Full-height container styles */
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure all page content takes full height */
+  [data-dashboard-page] {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Content containers within pages */
+  .full-height-container {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Performance optimizations */
+  html {
+    scroll-behavior: smooth;
+    touch-action: manipulation;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Responsive base sizes */
+  html {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 640px) {
+    html {
+      font-size: 15px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  /* Make sure images and containers are responsive */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Ensure tables don't overflow on mobile */
+  table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+  
+  @media (min-width: 768px) {
+    table {
+      display: table;
+    }
+  }
+  
+  /* Improve form controls on mobile */
+  input, select, textarea, button {
+    font-size: 16px; /* Prevents iOS zooming on focus */
+    max-width: 100%;
+  }
+  
+  /* Improve touch targets for mobile */
+  @media (pointer: coarse) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    input[type="checkbox"], 
+    input[type="radio"] {
+      min-width: 20px;
+      min-height: 20px;
+    }
+  }
+  
+  /* Fix for iOS overflow issues */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Smooth transition for dark/light mode */
+  * {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+@layer components {
+  /* Custom card styling */
+  .dashboard-card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-200;
+  }
+  
+  .dashboard-card:hover {
+    @apply shadow-md;
+  }
+  
+  /* Custom button styling */
+  .obd-button-primary {
+    @apply bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white;
+  }
+  
+  /* Data visualization elements */
+  .gauge-container {
+    @apply relative w-full aspect-square;
+  }
+  
+  .data-value {
+    @apply text-xl font-medium text-primary;
+  }
+  
+  .data-label {
+    @apply text-xs md:text-sm text-muted-foreground;
+  }
+  
+  /* Dashboard page structure */
+  .dashboard-page {
+    @apply min-h-screen flex flex-col w-full overflow-hidden;
+  }
+  
+  /* Dashboard content structure */
+  .dashboard-content {
+    @apply flex-1 overflow-y-auto flex flex-col;
+  }
+  
+  .dashboard-content > div {
+    @apply flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-sidebar-border scrollbar-track-transparent;
+  }
+  
+  /* Default spacing for dashboard components */
+  .dashboard-content > div {
+    @apply space-y-3 sm:space-y-4 md:space-y-6;
+  }
+
+  /* Mobile-first grid layouts */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4;
+  }
+  
+  .responsive-grid-narrow {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4;
+  }
+  
+  .responsive-grid-wide {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 sm:gap-4;
+  }
+  
+  /* Improved dashboard card sizing */
+  .card {
+    @apply rounded-lg border bg-card p-3 sm:p-4 text-card-foreground shadow-sm hover:shadow-md transition-all duration-200;
+  }
+  
+  /* Responsive padding classes */
+  .p-responsive {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+  
+  .px-responsive {
+    @apply px-3 sm:px-4 md:px-6;
+  }
+  
+  .py-responsive {
+    @apply py-3 sm:py-4 md:py-6;
+  }
+  
+  /* Better form elements on mobile */
+  .form-input {
+    @apply w-full rounded-md border border-input bg-background px-3 py-2 text-sm;
+  }
+  
+  .form-select {
+    @apply w-full rounded-md border border-input bg-background px-3 py-2 text-sm;
+  }
+  
+  .form-textarea {
+    @apply w-full rounded-md border border-input bg-background px-3 py-2 text-sm min-h-[80px];
+  }
+  
+  .form-checkbox {
+    @apply rounded border-input bg-background h-4 w-4;
+  }
+  
+  /* Loading states and animations */
+  .loading-container {
+    @apply flex items-center justify-center w-full h-full min-h-[100px];
+  }
+  
+  .loading-indicator {
+    @apply animate-spin rounded-full h-8 w-8 border-4 border-primary/30 border-t-primary;
+  }
+  
+  /* Custom scrollbar for sidebar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thumb-sidebar-border::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--sidebar-border, var(--border)) / 0.5);
+    border-radius: 9999px;
+  }
+  
+  .scrollbar-thumb-sidebar-border::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  /* Make scrollbars more visible on hover */
+  .scrollbar-thin:hover::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--sidebar-border, var(--border)) / 0.8);
+  }
+  
+  /* Scrollbar for Firefox */
+  * {
+    scrollbar-color: hsl(var(--border) / 0.5) transparent;
+  }
+}
+
+/* Sidebar styling */
+[data-sidebar="sidebar"] {
+  @apply bg-sidebar text-sidebar-foreground border-border/60;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/40 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50 transition-colors duration-200;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/40;
+}
+
+/* Improve touch targets on mobile */
+@media (pointer: coarse) {
+  button, a {
+    @apply min-h-[36px] min-w-[36px];
+  }
+  
+  input[type="checkbox"], 
+  input[type="radio"],
+  .checkbox, 
+  .radio {
+    @apply min-h-[20px] min-w-[20px];
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Dev tools and debug info */
+.debug-info {
+  @apply text-xs text-muted-foreground bg-muted/30 p-2 rounded-md whitespace-pre-wrap font-mono;
+}
+
+/* Utility classes */
+.cv-auto {
+  content-visibility: auto;
+}
+
+.gpu {
+  @apply transform-gpu;
+}
+
+/* Full size utilities */
+.full-height {
+  height: 100%;
+  min-height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Force full height on all containers */
+html, body, #__next, .main-container {
+  @apply h-full overflow-hidden;
+}
+
+body {
+  @apply overflow-hidden;
+}
+
+.main-container {
+  @apply flex flex-col overflow-hidden;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Dashboard content container styles */
+.dashboard-content {
+  @apply flex-1 overflow-y-auto flex flex-col;
+}
+
+.dashboard-content > div {
+  @apply flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-sidebar-border scrollbar-track-transparent;
+}
+
+/* Tab content styling */
+.tabs-content {
+  @apply flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-sidebar-border scrollbar-track-transparent;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.dashboard-page {
+  @apply min-h-screen flex flex-col;
+}
+
+/* Tabpanel styling */
+[role="tabpanel"] {
+  @apply h-full overflow-y-auto;
+}
+
+/* Login page styles */
+body.login-page {
+  @apply bg-gradient-to-br from-background to-muted;
+}
+
+.login-container {
+  @apply min-h-screen flex items-center justify-center p-3 sm:p-4;
+}
+
+.login-card-container {
+  @apply w-full max-w-md sm:max-w-lg md:max-w-xl;
+}
+
+/* Login form layout */
+.login-form-grid {
+  @apply grid gap-4 md:gap-6;
+}
+
+@media (min-width: 1024px) {
+  .login-form-grid {
+    @apply grid-cols-2 gap-6;
+  }
+}
+
+/* Form container styles */
+.form-container {
+  @apply space-y-3 sm:space-y-4;
+}
+
+/* Additional animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Card styling */
+.card {
+  @apply rounded-lg border p-4 shadow-sm;
+}
+
+.loading-enter {
+  @apply animate-fade-in;
+}
+
+/* Staggered animations for grid children */
+.grid > * {
+  animation: slideInUp 0.3s ease-out forwards;
+}
+
+.grid > *:nth-child(1) { animation-delay: 0.05s; }
+.grid > *:nth-child(2) { animation-delay: 0.1s; }
+.grid > *:nth-child(3) { animation-delay: 0.15s; }
+.grid > *:nth-child(4) { animation-delay: 0.2s; }
+.grid > *:nth-child(5) { animation-delay: 0.25s; }
+
+/* Loading skeleton */
+.skeleton-pulse {
+  @apply animate-pulse bg-muted-foreground/10 rounded-md;
+}
+
+/* Chart loading state */
+.chart-loading {
+  @apply min-h-[200px] flex items-center justify-center;
+}
+
+/* Active tab state */
+[data-state="active"] {
+  @apply bg-primary/10 text-primary;
+}
+
+[data-state="inactive"] {
+  @apply bg-transparent text-muted-foreground;
+}
+
+/* Accessibility - reduce motion if user prefers */
+@media (prefers-reduced-motion) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Add styles for tab content */
+[role="tablist"] {
+  @apply border-b border-border/30;
+}
+
+[role="tab"] {
+  @apply px-4 py-2 text-sm font-medium;
+}
+
+[role="tab"][aria-selected="true"] {
+  @apply border-b-2 border-primary text-primary;
+}
+
+[role="tabpanel"] {
+  @apply h-full overflow-y-auto scrollbar-thin scrollbar-thumb-sidebar-border scrollbar-track-transparent p-4;
+}

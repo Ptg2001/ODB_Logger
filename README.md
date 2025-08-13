@@ -116,6 +116,4 @@ Required environment variables:
 - Keep your JWT secret secure and different between environments
 - Use SSL for database connections in production
 
-## License
 
-[Your License Here] 
